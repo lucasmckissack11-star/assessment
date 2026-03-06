@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assessment</title>
+  <style>
+body {
+    background-image: url('https://raw.githubusercontent.com/2027480-source/picture/refs/heads/main/10008.png');
+    background-size: cover;       /* makes it cover the whole screen */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling */
+}
+    /* ----------------- Fade-in ----------------- */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      color: white;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 130vh;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* ----------------- Container ----------------- */
+    .container {
+      max-width: 700px;
+      position: relative;
+    }
+
+    h1 {
+      color: white;
+    }
+
+    /* ----------------- Images ----------------- */
+    img {
+      width: 200px;
+      display: block;
+      margin: 0 auto 25px auto;
+      filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.6));
+    }
+
+    /* ----------------- Buttons ----------------- */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    button {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      padding: 12px 25px;
+      margin: 8px;
+      background: crimson;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      width: 260px;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ff3c5f;
+      box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    }
+
+    .hidden { display: none; }
+
+    /* ----------------- Completion Bar ----------------- */
+    #completion-container {
+      width: 100%;
+      background-color: rgba(255,255,255,0.2);
+      height: 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #completion-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #e1143a, #ff3c5f);
+      transition: width 0.5s ease;
+    }
+
+    /* ----------------- Paragraphs ----------------- */
+    p {
+      max-width: 550px;
+      margin: auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Completion Bar -->
+  <div id="completion-container">
+    <div id="completion-bar"></div>
+  </div>
+
+  <div class="container">
+    <h1>Tracen Academy</h1>
+
+    <!-- START -->
+    <div id="start">
+      <img src="https://raw.githubusercontent.com/2027480-source/picture/refs/heads/main/v75irou11rcc1-removebg-preview.png" alt="Character Image">
+      <p>You arrive at Tracen Academy. You see all the racers that you adored on TV, wondering if you will ever be like them. The soft wind presses against you as you stand outside the front gate. You feel a strong determination and enter without a worry. As you stroll inside a thought strikes you. Who will you look up to?</p>
+      <div class="button-group">
+        <button onclick="go('suzuka'); updateCompletion(5)">Silence Suzuka</button>
+        <button onclick="go('rudolf'); updateCompletion(5)">Symboli Rudolf</button>
+        <button onclick="go('maru'); updateCompletion(5)">Maruzensky</button>
+      </div>
+    </div>
+
+    <!-- SUZUKA -->
+    <div id="suzuka" class="hidden">
+      <img src="https://raw.githubusercontent.com/2027480-source/picture/refs/heads/main/859065603.jpg-removebg-preview.png" alt="Character Image">
+      <p>You pursue the ultimate runaway: Silence Suzuka. She dominated all her races by pushing ahead at the start and keeping her lead the whole race. She is widely known and traveled to the USA to race after dominating Japan. A perfect pick for you, yet many other people have made this perfect pick and not had a successful career, so make sure to work hard.</p>
+      <div class="button-group">
+        <button onclick="go('friend_select'); updateCompletion(15)">Choose a Friend</button>
+      </div>
+    </div>
+
+    <!-- RUDOLF -->
+    <div id="rudolf" class="hidden">
+      <img src="https://raw.githubusercontent.com/2027480-source/picture/refs/heads/main/SymboliRudolfChibi1.webp" alt="Character Image">
+      <p>You pursue the unstoppable force: Symboli Rudolf. She won almost every major race in Japan, famous for her incredible speed and stamina that left rivals behind. Known as a legend of Japanese racing, she even faced top competition from abroad. A strong choice for you, but many have picked her and failed to shine, so stay focused and push yourself to the limit.</p>
+      <div class="button-group">
+        <button onclick="go('friend_select'); updateCompletion(15)">Choose a Friend</button>
+      </div>
+    </div>
+
+    <!-- MARUZENSKY -->
+    <div id="maru" class="hidden">
+      <img src="https://raw.githubusercontent.com/2027480-source/picture/refs/heads/main/Maruzensky_Chibi1-2.webp" alt="Character Image">
+      <p>You pursue the fierce competitor: Maruzensky. Known for her explosive acceleration and relentless fighting spirit, she often dominated races by closing gaps that seemed impossible. Her battles on the track were legendary in Japan, making her a fan favorite for her courage and determination. A strong choice for anyone chasing glory, but many who picked her faced unexpected challenges, so stay sharp and never underestimate the effort required to succeed.</p>
+      <div class="button-group">
+        <button onclick="go('friend_select'); updateCompletion(15)">Choose a Friend</button>
+      </div>
+    </div>
+
+    <!-- FRIEND SELECT -->
+    <div id="friend_select" class="hidden">
+      <img src="https://raw.githubusercontent.com/2027480-source/picture/refs/heads/main/Untitled%20design.png" alt="Character Image">
+      <p>You decide to rely on the support of a close friend. Three stand out among the crowd: Kitasan Black, Curren Chan, and Super Creek. Each offers a different kind of strength. Choosing a friend wisely can shape your journey at Tracen Academy.</p>
+      <div class="button-group">
+        <button onclick="go('kita_friend'); updateCompletion(25)">Kitasan Black</button>
+        <button onclick="go('curren_intro'); updateCompletion(25)">Curren Chan</button>
+        <button onclick="go('creek_friend'); updateCompletion(25)">Super Creek</button>
+      </div>
+    </div>
+
+    <!-- CURRREN MASSIVE PATH -->
+    <div id="curren_intro" class="hidden">
+
+    <img src="https://raw.githubusercontent.com/2027480-source/picture/refs/heads/main/ZpqAUmdnTfpdt0GE-removebg-preview.png" alt="Character Image">
+      <p>You spend the morning getting to know Curren Chan, laughing and talking as she shares her favorite spots around Tracen Academy. She suddenly pulls out her phone, eyes sparkling with excitement. 'Let’s post a photo together!' she suggests, eager to share your new friendship with everyone. It could be fun and boost your popularity—but it might also bring more attention than you want. Will you join her and post together, or quietly ignore the social media idea and stay out of the spotlight?</p>
+      <div class="button-group">
+        <button onclick="go('curren_post1'); updateCompletion(30)">Start Posting Together</button>
+        <button onclick="go('ignore'); updateCompletion(30)">Ignore Social Media</button>
+      </div>
+    </div>
+
+    <div id="curren_post1" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/tex_support_card_30068-removebg-preview.png" alt="Character Image">
+      <p>Your first post together goes live, showing you and Curren Chan smiling outside the academy. Within a few minutes the notifications start appearing on her phone. The post reaches 120 likes surprisingly quickly, and Curren cheers excitedly beside you. It’s not viral yet, but it feels like the beginning of something bigger..</p>
+      <div class="button-group">
+        <button onclick="go('curren_growth'); updateCompletion(35)">Keep Posting</button>
+        <button onclick="go('focus_training'); updateCompletion(35)">Focus on Racing Instead</button>
+      </div>
+    </div>
+
+    <div id="curren_growth" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/1038.png" alt="Character Image">
+      <p>Over the next week you continue posting moments from training, races, and fun times around the academy. Each post performs better than the last, and people begin recognising you in the hallways. Before you know it, your account has grown by over 2,000 followers. Curren Chan laughs proudly, saying you might become a famous racer and influencer.</p>
+      <div class="button-group">
+        <button onclick="go('hachimi_moment'); updateCompletion(45)">Say "Hachimi!" on stream</button>
+        <button onclick="go('bestest_moment'); updateCompletion(45)">Declare "I am the best"</button>
+      </div>
+    </div>
+
+    <div id="hachimi_moment" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/welcome-curren-chan-to-global-v0-tt9z3x13tiff1-removebg-preview.png" alt="Character Image">
+      <p>During a live stream you suddenly shout “Hachimi!” as a joke with Curren. The clip spreads across social media faster than you expected, with fans reposting it everywhere. By the time you wake up the next morning, your follower count has exploded by 10,000. Suddenly the entire academy seems to know who you are.</p>
+      <div class="button-group">
+        <button onclick="go('brand_offer'); updateCompletion(50)">Accept Brand Deal</button>
+        <button onclick="go('train_after_viral'); updateCompletion(50)">Ignore Fame & Train</button>
+      </div>
+    </div>
+
+    <div id="brand_offer" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/B1pppR4gVKL._CLa_2140_2000_81HrQdDcfCL.png_0_0_2140_2000%2B0.0_0.0_2140.0_2000.0_AC_UY1000_-removebg-preview.png" alt="Character Image">
+      <p>A company reaches out with an offer to sponsor you after seeing your rising popularity online. They promise equipment, promotion, and even money if you represent their brand. Once the announcement is posted, your popularity skyrockets even further. Cameras, fans, and interviews begin following you everywhere you go.</p>
+      <div class="button-group">
+        <button onclick="go('skip_training'); updateCompletion(60)">Skip Training</button>
+        <button onclick="go('balanced_influencer'); updateCompletion(60)">Balance Fame & Training</button>
+      </div>
+    </div>
+
+    <div id="skip_training" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/uma-musume-symboli-rudolf-removebg-preview.png" alt="Character Image">
+      <p>With so much time spent filming content and attending sponsor events, your training begins to slip. When the next race arrives, your body isn’t prepared for the pressure. You fall behind early and finish far from the lead. Fans online begin questioning whether you care more about fame than racing.</p>
+      <div class="button-group">
+        <button onclick="restart()">Return to Academy</button>
+      </div>
+    </div>
+
+    <div id="ignore" class="hidden">
+
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/curren-chan-has-found-where-you-live-v0-ug6ijtc3adjf1-removebg-preview.png" alt="Character Image">
+      <p>You decide to stay out of the spotlight and ignore the opportunities around you. While the quiet life feels comfortable, you slowly stop pushing yourself during training. Other racers grow stronger while you remain the same. Eventually your racing career fades before it ever truly begins.</p>
+      <div class="button-group">
+        <button onclick="restart()">Return to Academy</button>
+      </div>
+    </div>
+
+    <div id="balanced_influencer" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/c931c451-d87b-4750-af35-44811b93e04f-removebg-preview.png" alt="Character Image">
+      <p>Instead of choosing one path, you carefully balance your time between training and content creation. Early mornings are spent on the track, while evenings are used to connect with fans. People begin to admire not just your personality, but also your dedication and growth. Slowly, you build a reputation as both a serious racer and a rising star.</p>
+      <div class="button-group">
+        <button onclick="go('championship_final'); updateCompletion(80)">Enter Championship</button>
+      </div>
+    </div>
+
+    <div id="train_after_viral" class="hidden">
+    <img src="https://github.com/lucasmckissack11-star/lucas/blob/main/tex_support_card_20044-removebg-preview.png?raw=true" alt="Character Image">
+      <p>Despite your sudden popularity, you choose to step away from the spotlight for a while. Instead of streaming or posting constantly, you dedicate yourself completely to training. Rumours begin spreading about how serious you've become on the track. When you return to racing, people are surprised by how much stronger you've grown.</p>
+      <div class="button-group">
+        <button onclick="go('championship_final'); updateCompletion(80)">Enter Championship</button>
+      </div>
+    </div>
+
+    <div id="bestest_moment" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/keep-your-eyes-on-curren-chan-v0-4mmj65md3dmf1-removebg-preview.png" alt="Character Image">
+      <p>During a stream you boldly claim that you are the best racer at the academy. At first it feels confident, but many viewers interpret it as arrogance. Comments begin flooding in criticizing your attitude. Soon your reputation begins to suffer, and even some fans start turning against you.</p>
+      <div class="button-group">
+        <button onclick="go('apology_arc'); updateCompletion(50)">Public Apology</button>
+        <button onclick="restart()">Double Down</button>
+      </div>
+    </div>
+
+    <div id="apology_arc" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/images.steamusercontent-removebg-preview.png" alt="Character Image">
+      <p>Realising your mistake, you upload a heartfelt apology explaining that your words came from excitement rather than arrogance. You thank your supporters and promise to prove yourself through hard work instead of bragging. Some fans remain skeptical, but many appreciate your honesty. Gradually, people begin supporting you again.</p>
+      <div class="button-group">
+        <button onclick="go('focus_training'); updateCompletion(55)">Focus on Racing</button>
+      </div>
+    </div>
+
+    <div id="focus_training" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/currenchan_04.webp" alt="Character Image">
+      <p>After everything that has happened, you decide there are no more shortcuts. Every day becomes focused on refining your technique and pushing your limits. Training sessions become longer and more intense than ever before. Slowly, you begin to feel yourself becoming stronger.</p>
+      <div class="button-group">
+        <button onclick="go('medium_race'); updateCompletion(60)">Enter Medium Race</button>
+      </div>
+    </div>
+
+    <!-- Kitasan Path -->
+    <div id="kita_friend" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/chara_stand_1068_106803.png" alt="Character Image">
+      <p>Kitasan Black greets you with a huge grin and endless enthusiasm. Her training sessions are intense, filled with sprint drills and powerful starts that push your body to its limits. Even when you're exhausted, she keeps cheering you on with unstoppable energy. Training beside her makes every session feel exciting and competitive.</p>
+      <div class="button-group">
+        <button onclick="go('train_speed'); updateCompletion(40)">Train Speed</button>
+        <button onclick="go('train_stamina'); updateCompletion(40)">Train Stamina</button>
+        <button onclick="restart()">Rest Too Much</button>
+      </div>
+    </div>
+
+    <div id="train_speed" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/tex_support_card_30028.png" alt="Character Image">
+      <p>Through relentless sprint training, your acceleration begins improving dramatically. Soon you’re able to burst ahead at the start of races before others can react. Coaches and racers start noticing how quickly you move down the track. Your speed becomes one of your greatest strengths.</p>
+      <div class="button-group">
+        <button onclick="go('medium_race'); updateCompletion(60)">Race</button>
+      </div>
+    </div>
+
+    <div id="train_stamina" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/chara_stand_1068_106801.png" alt="Character Image">
+      <p>Instead of focusing only on speed, you spend hours building endurance and breathing control. Long distance runs strengthen your legs and allow you to maintain pace far longer than before. Even during exhausting races, you still have energy when others begin to slow down. Your stamina becomes a powerful weapon on the track.</p>
+      <div class="button-group">
+        <button onclick="go('championship_final'); updateCompletion(80)">Enter Championship</button>
+      </div>
+    </div>
+
+    <!-- Super Creek Path -->
+    <div id="creek_friend" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/chara_stand_1045_104501.png" alt="Character Image">
+      <p>Super Creek approaches training with a calm and thoughtful attitude. She explains that racing isn’t just about speed, but about controlling your energy and understanding the race. Her lessons focus on balance, pacing, and patience. With her guidance, you begin to see racing in a completely new way.</p>
+      <div class="button-group">
+        <button onclick="go('supercreek_train'); updateCompletion(40)">Balanced Training</button>
+        <button onclick="go('goo-goo_babies'); updateCompletion(40)">Ignore Advice</button>
+      </div>
+    </div>
+
+    <div id="supercreek_train" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/Super_Creek_%2528Main%2529.webp" alt="Character Image">
+      <p>After weeks of balanced training, Super Creek gives you an important decision. You can continue training with her to develop even further, or step onto the track and test your progress in a real race. Both options could shape your future differently. The decision now rests entirely in your hands.</p>
+      <div class="button-group">
+        <button onclick="go('medium_race'); updateCompletion(60)">Race</button>
+        <button onclick="go('goo-goo_babies'); updateCompletion(50)">Stay</button>
+      </div>
+    </div>
+
+    <div id="goo-goo_babies" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/21pdbxgh5shf1.jpg" alt="Character Image">
+      <p>You ignore the seriousness of your situation and drift away from proper training. Instead of focusing on improvement, you waste time doing meaningless things around the academy. Slowly, your potential slips away while others continue getting stronger. Before long, your racing dream collapses completely. Have you ever played goo-goo babies with your life on the line</p>
+      <div class="button-group">
+        <button onclick="restart()">Reincarnate</button>
+      </div>
+    </div>
+
+    <!-- RACES -->
+    <div id="medium_race" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/japanderby.png" alt="Character Image">
+      <p>When the race begins, everything you trained for finally comes together. Your pacing is perfect and your movements feel effortless. One by one, your competitors fall behind as you surge ahead. By the finish line, your victory is undeniable.</p>
+      <div class="button-group">
+        <button onclick="go('championship_final'); updateCompletion(80)">Enter Championship</button>
+      </div>
+    </div>
+
+    <!-- FINAL -->
+    <div id="championship_final" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/show.png" alt="Character Image">
+      <p>TThe stadium roars as the final race of the season begins. Every racer here has fought hard to reach this moment. The pressure is overwhelming, but so is the excitement. Everything you have trained for leads to this one race.</p>
+      <div class="button-group">
+        <button onclick="go('true_win'); updateCompletion(100)">Give Everything</button>
+        <button onclick="go('burnout'); updateCompletion(80)">Push Beyond Limits</button>
+      </div>
+    </div>
+
+    <div id="true_win" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/on-this-day-august-30th-12-years-ago-the-real-life-tokai-v0-cg5gn87zh2mf1.webp" alt="Character Image">
+      <p>🏆 TRUE CHAMPION ENDING 🏆<br>You combine inspiration, friendship and discipline to become a legend.</p>
+      <div class="button-group">
+        <button onclick="restart()">Play Again</button>
+      </div>
+    </div>
+
+    <div id="burnout" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/teio-bad-end-v0-wp47hyyxqygf1-removebg-preview.png">
+      <p>You push harder than your body can handle, trying to force your way to victory. Your vision begins to blur as exhaustion overwhelms you. Just before reaching the finish line, your strength finally gives out. The crowd gasps as your championship dream slips away.</p>
+      <div class="button-group">
+        <button onclick="restart()">Restart</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function go(id){
+      document.querySelectorAll(".container > div").forEach(div => div.classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function restart(){
+      document.querySelectorAll(".container > div").forEach(div => div.classList.add("hidden"));
+      document.getElementById("start").classList.remove("hidden");
+      updateCompletion(0);
+    }
+
+    function updateCompletion(percent){
+      document.getElementById('completion-bar').style.width = percent + '%';
+    }
+  </script>
+</body>
+</html>
