@@ -309,33 +309,124 @@ p {
       </div>
     </div>
 
-    <!-- Super Creek Path -->
-    <div id="creek_friend" class="hidden">
-    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/chara_stand_1045_104501.png" alt="Character Image">
-      <p>Super Creek approaches training with a calm and thoughtful attitude. She explains that racing isn’t just about speed, but about controlling your energy and understanding the race. Her lessons focus on balance, pacing, and patience. With her guidance, you begin to see racing in a completely new way.</p>
-      <div class="button-group">
-        <button onclick="go('supercreek_train'); updateCompletion(40)">Balanced Training</button>
-        <button onclick="go('goo-goo_babies'); updateCompletion(40)">Ignore Advice</button>
-      </div>
-    </div>
+<!-- SUPER CREEK INTRO EXPANDED -->
+<div id="creek_friend" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/chara_stand_1045_104501.png">
+  <p>Super Creek trains with a calm, unreadable demeanor, teaching that racing is about control, patience, and understanding your limits—not just speed. Though her methods feel slow at first, you begin to realize you’re becoming smarter and more precise. One day, she stops you and quietly says that the path you choose will define the kind of runner you become.
+</p>
 
-    <div id="supercreek_train" class="hidden">
-    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/Super_Creek_%2528Main%2529.webp" alt="Character Image">
-      <p>After weeks of balanced training, Super Creek gives you an important decision. You can continue training with her to develop even further, or step onto the track and test your progress in a real race. Both options could shape your future differently. The decision now rests entirely in your hands.</p>
-      <div class="button-group">
-        <button onclick="go('medium_race'); updateCompletion(60)">Race</button>
-        <button onclick="go('goo-goo_babies'); updateCompletion(50)">Stay</button>
-      </div>
-    </div>
+  <div class="button-group">
+    <button onclick="go('supercreek_train'); updateCompletion(40)">Follow Her Training</button>
+    <button onclick="go('creek_question'); updateCompletion(35)">Question Her Methods</button>
+    <button onclick="go('friend_select'); updateCompletion(40)">Ignore Advice</button>
+  </div>
+</div>
 
-    <div id="goo-goo_babies" class="hidden">
-    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/21pdbxgh5shf1.jpg" alt="Character Image">
-      <p>You ignore the seriousness of your situation and drift away from proper training. Instead of focusing on improvement, you waste time doing meaningless things around the academy. Slowly, your potential slips away while others continue getting stronger. Before long, your racing dream collapses completely. Have you ever played goo-goo babies with your life on the line</p>
-      <div class="button-group">
-        <button onclick="restart()">Reincarnate</button>
-      </div>
-    </div>
 
+<!-- QUESTION HER -->
+<div id="creek_question" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/images-removebg-preview%20(1).png">
+  <p>You hesitate, unsure if her slow and controlled approach is really the best way forward. When you question her, Super Creek doesn’t get upset. Instead, she nods slightly, as if she expected this. She explains that doubt is natural—but rushing blindly leads to failure.
+
+  She gives you two options: fully commit to her philosophy… or try combining her methods with your own aggressive style.</p>
+
+  <div class="button-group">
+    <button onclick="go('supercreek_train'); updateCompletion(45)">Trust Her Fully</button>
+    <button onclick="go('creek_mix'); updateCompletion(45)">Mix Styles</button>
+  </div>
+</div>
+
+
+<!-- MIX STYLE -->
+<div id="creek_mix" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/images-removebg-preview%20(2).png">
+  <p>You decide not to fully commit, blending her patience with your natural aggression. At first, it feels powerful—you can switch between control and bursts of speed. But as training continues, cracks begin to show. Your timing becomes inconsistent, and your energy management isn’t as clean as it should be.
+
+  Super Creek watches silently, eventually telling you: “Half-measures lead to unstable results.”</p>
+
+  <div class="button-group">
+    <button onclick="go('creek_recover'); updateCompletion(55)">Fix Your Approach</button>
+    <button onclick="go('burnout'); updateCompletion(50)">Ignore the Warning</button>
+  </div>
+</div>
+
+
+<!-- RECOVER -->
+<div id="creek_recover" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/images-removebg-preview%20(3).png">
+  <p>Realizing your mistake, you return to basics. This time, you commit fully to control and discipline. The process is slower than before, but your foundation becomes far stronger. Every step, every breath, every movement begins to feel intentional.</p>
+
+  <div class="button-group">
+    <button onclick="go('supercreek_train'); updateCompletion(60)">Continue Training</button>
+  </div>
+</div>
+
+
+<!-- MAIN TRAINING EXPANDED -->
+<div id="supercreek_train" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/SuperCreekChibi1.webp">
+  <p>Weeks pass as you train under Super Creek’s guidance. Each day is structured, deliberate, and mentally demanding. You’re not just running—you’re learning how to read races, predict outcomes, and control your body with precision.
+
+  Eventually, she approaches you with a new set of training options.</p>
+
+  <div class="button-group">
+    <button onclick="go('creek_pool')">Endurance Training (Pool)</button>
+    <button onclick="go('creek_mind')">Mental Training</button>
+    <button onclick="go('creek_rest')">Take a Rest Day</button>
+  </div>
+</div>
+
+
+<!-- MENTAL TRAINING -->
+<div id="creek_mind" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/uma-musume-super-creek-removebg-preview.png">
+  <p>Instead of physical training, Super Creek has you sit and observe races. She teaches you how to analyze movement, predict pacing, and identify weaknesses in opponents. At first it feels boring—but over time, your understanding sharpens.
+
+  You begin seeing patterns others can’t.</p>
+
+  <div class="button-group">
+    <button onclick="go('medium_race'); updateCompletion(70)">Apply It in a Race</button>
+  </div>
+</div>
+
+
+<!-- REST DAY -->
+<div id="creek_rest" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/UmaMusumePrettyDerbyNendoroid-SuperCreek_2-removebg-preview%20(2).png">
+  <p>You choose to rest, allowing your body to recover. While it feels good at first, you can’t shake the feeling that you’re falling behind. When you return, others seem sharper… faster.
+
+  Super Creek simply says, “Rest is important—but timing matters.”</p>
+
+  <div class="button-group">
+    <button onclick="go('supercreek_train'); updateCompletion(55)">Return to Training</button>
+    <button onclick="go('friend_select'); updateCompletion(50)">Lose Motivation</button>
+  </div>
+</div>
+
+
+<!-- POOL TRAINING -->
+<div id="creek_pool" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/some-umamusume-are-good-swimmers-and-some-are-not-v0-sg7f7f6jq3if1-removebg-preview.png">
+  <p>The pool training pushes you beyond your limits. Every movement is resisted, every breath controlled. You struggle at first—but slowly adapt, building incredible endurance and discipline.</p>
+  <div class="button-group">
+    <button onclick="go('creek_push'); updateCompletion(65)">Push Even Harder</button>
+    <button onclick="go('medium_race'); updateCompletion(70)">Return to Track</button>
+  </div>
+</div>
+
+
+<!-- OVERTRAINING PATH -->
+<div id="creek_push" class="hidden">
+    <img src="https://raw.githubusercontent.com/lucasmckissack11-star/imagesfr/refs/heads/main/images-removebg-preview%20(2).png">
+  <p>You push beyond what even Super Creek recommends. At first, it feels like rapid improvement—but your body begins to break down. Fatigue builds, your performance drops, and injuries start to creep in.
+
+  Super Creek looks disappointed. “Strength without restraint leads to collapse.”</p>
+
+  <div class="button-group">
+    <button onclick="go('creek_recover'); updateCompletion(60)">Recover Properly</button>
+    <button onclick="go('burnout'); updateCompletion(50)">Ignore Pain</button>
+  </div>
+</div>
     <!-- RACES -->
     <div id="medium_race" class="hidden">
     <img src="https://raw.githubusercontent.com/lucasmckissack11-star/lucas/refs/heads/main/japanderby.png" alt="Character Image">
